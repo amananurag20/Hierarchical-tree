@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi2';
-import { menuItems } from '../../constants/menuItems';
+import { menuItems } from '../../data/menuItems';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
     const [collapsed] = useState(false);
 
     return (
-        <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+        <aside className={`sidebar ${collapsed ? 'collapsed' : ''} `}>
             {/* Logo */}
             <div className="sidebar-logo">
                 <span className="logo-icon">3S</span>
@@ -22,7 +22,7 @@ const Sidebar: React.FC = () => {
                 {menuItems.map((item) => (
                     <div
                         key={item.id}
-                        className={`nav-item ${item.isActive ? 'active' : ''}`}
+                        className={`nav - item ${item.isActive ? 'active' : ''} `}
                     >
                         <div className="nav-item-content">
                             <span className="nav-icon">{item.icon}</span>
