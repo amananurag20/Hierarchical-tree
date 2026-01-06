@@ -125,40 +125,40 @@
     box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.6), 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Connecting lines */
+/* Connecting lines - Curved L-shape like Figma */
 .horizontal-line {
-    width: 50px;
-    /* Wider spacing */
+    width: 30px;
     height: 1px;
-    /* Thinner line */
-    background: #9ca3af;
-    align-self: center;
+    background: #c5c5c5;
+    align-self: flex-start;
+    /* Align to top of row */
+    margin-top: 20px;
+    /* Adjusted to 20px to match child border alignment */
     flex-shrink: 0;
 }
 
 .children-container {
     display: flex;
     position: relative;
+    padding-left: 0;
+    /* Remove gap */
 }
 
 .vertical-connector {
     width: 1px;
-    /* Thinner line */
-    background: #9ca3af;
+    background: #c5c5c5;
     position: absolute;
     left: 0;
-    top: 0;
-    height: calc(100% - 21px);
-    /* Adjust for alignment */
-    border-radius: 0 0 0 10px;
-    /* Slight curve at bottom left if needed, or just straight */
+    top: 20px;
+    /* Start at 20px to connect seamlessly */
+    height: calc(100% - 41px);
+    /* Adjusted height calculation */
 }
 
 .children-nodes {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    /* Spacing between siblings */
+    gap: 12px;
     padding-left: 0;
 }
 
@@ -168,17 +168,22 @@
     position: relative;
 }
 
+/* Curved connector for each child - L-shape with rounded corner */
 .child-horizontal-line {
-    width: 50px;
-    /* Wider spacing */
-    height: 1px;
-    background: #9ca3af;
-    align-self: center;
-    margin-top: 21px;
-    /* Align with center of 36px height node */
+    width: 30px;
+    height: 21px;
+    border-left: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+    border-bottom-left-radius: 12px;
+    background: transparent;
     flex-shrink: 0;
-    border-radius: 0 0 0 10px;
-    /* Simulating curved connector */
+    margin-right: 0;
+}
+
+/* First child connector should be straight (no curve up) */
+.child-wrapper:first-child>.child-horizontal-line {
+    border-left: none;
+    border-bottom-left-radius: 0;
 }
 
 /* Animation for expand/collapse */
