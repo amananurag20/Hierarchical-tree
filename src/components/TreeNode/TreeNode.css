@@ -15,9 +15,13 @@
 .tree-node-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 20px;
+    justify-content: space-between;
+    gap: 10px;
+    /* From Figma Gap */
+    padding: 6px 24px;
+    /* From Figma Padding: Top/Bottom 6px, Left/Right 24px */
+    border-radius: 8px;
+    /* From Figma Radius */
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -26,6 +30,10 @@
     position: relative;
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1.5px solid transparent;
+    /* Reserve space for border */
+    min-height: 42px;
+    /* From Figma dimensions */
 }
 
 .tree-node-pill:hover {
@@ -42,8 +50,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     border: none;
     background: rgba(255, 255, 255, 0.3);
@@ -54,50 +62,61 @@
     transition: all 0.2s ease;
     line-height: 1;
     padding: 0;
+    margin-left: 4px;
 }
 
 .expand-btn:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* Node color variants */
-.node-equipment-type {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    color: white;
-}
+/* Node color variants based on Figma Hex Codes */
 
+/* Level 1 & 2: Equipment (Blue) - #5583F7 */
+.node-equipment-type,
 .node-equipment {
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    background: linear-gradient(180deg, #7aa0f9 0%, #5583F7 100%);
     color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Level 3: Assembly (Red) - #EA5050 */
 .node-assembly {
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    background: linear-gradient(180deg, #ee7676 0%, #EA5050 100%);
     color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Level 4: Sub-Assembly / Main Engine (Dark Navy) - #003366 */
 .node-sub-assembly {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(180deg, #1a4f80 0%, #003366 100%);
     color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Level 5: Sub-Assembly 2 / Systems (Gray) - #929090 */
 .node-sub-assembly-2 {
-    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    background: linear-gradient(180deg, #adabaa 0%, #929090 100%);
     color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Level 6: Sub-Assembly 3 / Components (Light Gray) - #C9C6C5 */
 .node-sub-assembly-3 {
-    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+    background: linear-gradient(180deg, #dad8d7 0%, #C9C6C5 100%);
     color: white;
+    /* Text might be better dark here? Figma shows white text on similar pills usually, checked images: text is white. */
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Level 7: Leaf / Components (Green) - #22C55E (Inferred High-Contrast Green) */
 .node-component {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    background: linear-gradient(180deg, #4ca045 0%, #34882D 100%);
     color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .node-default {
-    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    background: linear-gradient(180deg, #e5e7eb 0%, #d1d5db 100%);
     color: #374151;
 }
 
@@ -108,9 +127,11 @@
 
 /* Connecting lines */
 .horizontal-line {
-    width: 40px;
-    height: 2px;
-    background: #d1d5db;
+    width: 50px;
+    /* Wider spacing */
+    height: 1px;
+    /* Thinner line */
+    background: #9ca3af;
     align-self: center;
     flex-shrink: 0;
 }
@@ -121,18 +142,23 @@
 }
 
 .vertical-connector {
-    width: 2px;
-    background: #d1d5db;
+    width: 1px;
+    /* Thinner line */
+    background: #9ca3af;
     position: absolute;
     left: 0;
     top: 0;
-    height: calc(100% - 20px);
+    height: calc(100% - 21px);
+    /* Adjust for alignment */
+    border-radius: 0 0 0 10px;
+    /* Slight curve at bottom left if needed, or just straight */
 }
 
 .children-nodes {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    /* Spacing between siblings */
     padding-left: 0;
 }
 
@@ -143,12 +169,16 @@
 }
 
 .child-horizontal-line {
-    width: 40px;
-    height: 2px;
-    background: #d1d5db;
+    width: 50px;
+    /* Wider spacing */
+    height: 1px;
+    background: #9ca3af;
     align-self: center;
-    margin-top: 12px;
+    margin-top: 21px;
+    /* Align with center of 36px height node */
     flex-shrink: 0;
+    border-radius: 0 0 0 10px;
+    /* Simulating curved connector */
 }
 
 /* Animation for expand/collapse */

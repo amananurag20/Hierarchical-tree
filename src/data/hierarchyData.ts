@@ -1,4 +1,5 @@
-import { TreeNode, TreeNodeLevel } from '../types/types';
+import { TreeNodeLevel } from '../types/types';
+import type { TreeNode } from '../types/types';
 
 // Complete vessel hierarchy data based on Figma designs
 export const vesselHierarchyData: TreeNode = {

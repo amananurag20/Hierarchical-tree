@@ -1,5 +1,6 @@
 import React from 'react';
-import { TreeNode as TreeNodeType, TreeNodeLevel, ExpandedState } from '../../types/types';
+import { TreeNodeLevel } from '../../types/types';
+import type { TreeNode as TreeNodeType, ExpandedState } from '../../types/types';
 import './TreeNode.css';
 
 interface TreeNodeProps {

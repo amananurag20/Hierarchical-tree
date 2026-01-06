@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import TreeNodeComponent from '../TreeNode/TreeNode';
-import { TreeNode, ExpandedState } from '../../types/types';
+import type { TreeNode, ExpandedState } from '../../types/types';
 import './TreeView.css';
 
 interface TreeViewProps {
