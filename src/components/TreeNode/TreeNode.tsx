@@ -83,30 +83,28 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
                     )}
                 </div>
 
-                {/* Connecting line to children */}
-                {hasChildren && isExpanded && (
-                    <div className="horizontal-line"></div>
-                )}
-
-                {/* Children container */}
-                {hasChildren && isExpanded && (
-                    <div className="children-container">
-                        <div className="vertical-connector"></div>
-                        <div className="children-nodes">
-                            {node.children!.map((child, index) => (
-                                <div key={child.id} className="child-wrapper">
-                                    <div className="child-horizontal-line"></div>
-                                    <TreeNodeComponent
-                                        node={child}
-                                        expandedState={expandedState}
-                                        onToggle={onToggle}
-                                        searchQuery={searchQuery}
-                                        matchedNodeIds={matchedNodeIds}
-                                        parentPathIds={parentPathIds}
-                                        isLastChild={index === node.children!.length - 1}
-                                    />
-                                </div>
-                            ))}
+                {/* Animated Children Wrapper */}
+                {hasChildren && (
+                    <div className={`children-animated-wrapper ${isExpanded ? 'expanded' : 'collapsed'}`}>
+                        <div className="horizontal-line"></div>
+                        <div className="children-container">
+                            <div className="vertical-connector"></div>
+                            <div className="children-nodes">
+                                {node.children!.map((child, index) => (
+                                    <div key={child.id} className="child-wrapper">
+                                        <div className="child-horizontal-line"></div>
+                                        <TreeNodeComponent
+                                            node={child}
+                                            expandedState={expandedState}
+                                            onToggle={onToggle}
+                                            searchQuery={searchQuery}
+                                            matchedNodeIds={matchedNodeIds}
+                                            parentPathIds={parentPathIds}
+                                            isLastChild={index === node.children!.length - 1}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}
