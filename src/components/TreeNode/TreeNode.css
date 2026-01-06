@@ -17,8 +17,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    /* From Figma Gap */
     padding: 6px 24px;
+    /* From Figma Padding: Top/Bottom 6px, Left/Right 24px */
     border-radius: 8px;
+    /* From Figma Radius */
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -28,7 +31,9 @@
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1.5px solid transparent;
+    /* Reserve space for border */
     min-height: 42px;
+    /* From Figma dimensions */
 }
 
 .tree-node-pill:hover {
@@ -99,6 +104,7 @@
 .node-sub-assembly-3 {
     background: linear-gradient(180deg, #dad8d7 0%, #C9C6C5 100%);
     color: white;
+    /* Text might be better dark here? Figma shows white text on similar pills usually, checked images: text is white. */
     border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -141,7 +147,9 @@
     position: absolute;
     left: 0;
     top: 20px;
+    /* Start at 20px to connect seamlessly */
     height: calc(100% - 41px);
+    /* Adjusted height calculation */
 }
 
 .children-nodes {
@@ -157,7 +165,8 @@
     position: relative;
 }
 
-*/ .child-horizontal-line {
+/* Curved connector for each child - L-shape with rounded corner */
+.child-horizontal-line {
     width: 30px;
     height: 21px;
     border-left: 1px solid #c5c5c5;
