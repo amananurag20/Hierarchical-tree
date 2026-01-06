@@ -182,27 +182,18 @@
 }
 
 /* Animation for expand/collapse */
-.children-animated-wrapper {
-    display: flex;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    opacity: 1;
-    max-width: 2000px;
-    /* Arbitrary large value to accommodate children width */
-    transform-origin: left center;
-    transform: scaleX(1);
-}
-
-.children-animated-wrapper.collapsed {
-    opacity: 0;
-    max-width: 0;
-    transform: scaleX(0.9);
-    pointer-events: none;
-}
-
-/* Ensure inner container has correct layout */
 .children-container {
-    display: flex;
-    position: relative;
-    /* No animation on this element directly, handled by wrapper */
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
