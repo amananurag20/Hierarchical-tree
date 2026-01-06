@@ -5,14 +5,15 @@
   width: 100%;
   min-height: 100vh;
   background: #fafafa;
+  /* Removed height lock to allow window scrolling */
 }
 
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  padding: 0 24px;
+  padding: 0 24px 80px 24px;
+  /* Keep padding for footer */
 }
 
 .content-area {

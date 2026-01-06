@@ -131,9 +131,7 @@
     height: 1px;
     background: #c5c5c5;
     align-self: flex-start;
-    /* Align to top of row */
     margin-top: 20px;
-    /* Adjusted to 20px to match child border alignment */
     flex-shrink: 0;
 }
 
@@ -141,7 +139,6 @@
     display: flex;
     position: relative;
     padding-left: 0;
-    /* Remove gap */
 }
 
 .vertical-connector {
