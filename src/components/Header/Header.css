@@ -1,0 +1,33 @@
+/* Header Component Styles */
+
+.header {
+    padding: 16px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.breadcrumb-item {
+    color: #6b7280;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+    color: #374151;
+}
+
+.breadcrumb-item.active {
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.breadcrumb-separator {
+    color: #d1d5db;
+    user-select: none;
+}

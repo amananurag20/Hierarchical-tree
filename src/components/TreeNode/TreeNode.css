@@ -1,0 +1,169 @@
+/* TreeNode Component Styles */
+
+.tree-node-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-node-row {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Node pill styling */
+.tree-node-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tree-node-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.node-label {
+    user-select: none;
+}
+
+/* Expand/Collapse button */
+.expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.expand-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Node color variants */
+.node-equipment-type {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+}
+
+.node-equipment {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+}
+
+.node-assembly {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    color: white;
+}
+
+.node-sub-assembly {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.node-sub-assembly-2 {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    color: white;
+}
+
+.node-sub-assembly-3 {
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+    color: white;
+}
+
+.node-component {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+}
+
+.node-default {
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    color: #374151;
+}
+
+/* Search match highlight */
+.search-match {
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.6), 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Connecting lines */
+.horizontal-line {
+    width: 40px;
+    height: 2px;
+    background: #d1d5db;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.children-container {
+    display: flex;
+    position: relative;
+}
+
+.vertical-connector {
+    width: 2px;
+    background: #d1d5db;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100% - 20px);
+}
+
+.children-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+}
+
+.child-wrapper {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.child-horizontal-line {
+    width: 40px;
+    height: 2px;
+    background: #d1d5db;
+    align-self: center;
+    margin-top: 12px;
+    flex-shrink: 0;
+}
+
+/* Animation for expand/collapse */
+.children-container {
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
