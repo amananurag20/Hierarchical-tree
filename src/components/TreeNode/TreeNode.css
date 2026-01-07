@@ -199,3 +199,111 @@
         transform: translateX(0);
     }
 }
+
+/* Drag & Drop Styles */
+.drag-handle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    letter-spacing: -2px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: grab;
+    user-select: none;
+    margin-right: 4px;
+    transition: color 0.2s ease;
+}
+
+.drag-handle:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tree-node-pill[draggable="true"] {
+    cursor: grab;
+}
+
+.tree-node-pill[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Being dragged state */
+.tree-node-container.dragging {
+    opacity: 0.5;
+}
+
+.tree-node-pill.being-dragged {
+    opacity: 0.7;
+    transform: scale(0.98);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Drop target state - for "inside" drop */
+.tree-node-pill.drop-target-inside {
+    box-shadow: 0 0 0 3px #3b82f6, 0 4px 12px rgba(59, 130, 246, 0.4);
+    transform: scale(1.02);
+}
+
+.tree-node-pill.drop-target-inside::before {
+    content: '+ Add as child';
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* Drop indicator lines for before/after positions */
+.drop-indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 4px;
+    margin: -2px 0;
+    z-index: 10;
+}
+
+.drop-indicator-before {
+    margin-bottom: 4px;
+}
+
+.drop-indicator-after {
+    margin-top: 4px;
+}
+
+.drop-indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px white, 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.drop-indicator-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, transparent 100%);
+    margin-left: -1px;
+    max-width: 200px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}

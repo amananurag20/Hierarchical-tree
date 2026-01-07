@@ -159,9 +159,9 @@ User Input (Search) → App.tsx (state) → TreeView.tsx (process matches)
 
 - [ ] **Virtualization**: Implement windowing for large node sets (react-window)
 - [ ] **Keyboard Navigation**: Arrow keys to traverse nodes, Enter to expand
-- [ ] **Drag & Drop**: Reorder nodes within the hierarchy
+- [x] **Drag & Drop**: Reorder nodes within the hierarchy ✅
 - [ ] **Lazy Loading**: Fetch children on-demand for deep hierarchies
-- [ ] **Export**: Download tree as PNG/SVG or JSON
+- [x] **Export**: Download tree as PNG/SVG ✅
 - [ ] **Undo/Redo**: Track expansion state history
 
 ## Screenshots
