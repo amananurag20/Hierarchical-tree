@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +21,6 @@ body {
   color: #111827;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -41,24 +39,20 @@ body {
   background: #9ca3af;
 }
 
-/* Selection */
 ::selection {
   background: rgba(99, 102, 241, 0.2);
   color: inherit;
 }
 
-/* Focus outline */
 :focus-visible {
   outline: 2px solid #6366f1;
   outline-offset: 2px;
 }
 
-/* Button reset */
 button {
   font-family: inherit;
 }
 
-/* Link reset */
 a {
   text-decoration: none;
   color: inherit;

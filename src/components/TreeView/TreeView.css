@@ -1,5 +1,3 @@
-/* TreeView Container Styles */
-
 .tree-view-wrapper {
     position: relative;
     width: 100%;
@@ -25,7 +23,6 @@
     min-width: max-content;
 }
 
-/* Zoom Controls */
 .tree-controls {
     position: fixed;
     bottom: 60px;
@@ -71,7 +68,6 @@
     margin: 0 4px;
 }
 
-/* Scale Indicator */
 .scale-indicator {
     position: fixed;
     bottom: 68px;
@@ -87,7 +83,6 @@
     z-index: 50;
 }
 
-/* Scroll indicator */
 .tree-view-wrapper::after {
     content: '';
     position: absolute;
@@ -102,7 +97,6 @@
     margin-bottom: 10px;
 }
 
-/* Drag indicator */
 .drag-indicator {
     position: fixed;
     bottom: 120px;
@@ -130,7 +124,6 @@
     }
 }
 
-/* Export button active state */
 .control-btn:active {
     transform: scale(0.95);
 }

@@ -13,7 +13,6 @@ interface TreeNodeProps {
     isRoot?: boolean;
     isLastChild?: boolean;
     parentHasMoreChildren?: boolean;
-    // Drag & Drop props
     onDragStart?: (nodeId: string) => void;
     onDragEnd?: () => void;
     onDragOver?: (nodeId: string, position: 'before' | 'after' | 'inside') => void;
@@ -24,7 +23,6 @@ interface TreeNodeProps {
     dropPosition?: 'before' | 'after' | 'inside' | null;
 }
 
-// Get the color class based on node level
 const getNodeColorClass = (level: TreeNodeLevel): string => {
     switch (level) {
         case TreeNodeLevel.EQUIPMENT_TYPE:
@@ -69,16 +67,13 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
     const nodeRef = useRef<HTMLDivElement>(null);
     const [localDropPosition, setLocalDropPosition] = useState<'before' | 'after' | 'inside' | null>(null);
 
-    // Determine if this node matches the search
     const isMatch = matchedNodeIds.has(node.id);
     const isInPath = parentPathIds.has(node.id);
 
-    // Drag state
     const isBeingDragged = draggedNodeId === node.id;
     const isDropTarget = dropTargetId === node.id;
     const currentDropPosition = isDropTarget ? dropPosition : localDropPosition;
 
-    // If searching and node is not in path or match, hide it
     if (searchQuery && !isMatch && !isInPath) {
         return null;
     }
@@ -88,8 +83,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
         onToggle(node.id);
     };
 
-    // Calculate drop position from mouse Y
-    // 45% top = before, 45% bottom = after, 10% middle = inside (as child)
     const getDropPosition = (e: React.DragEvent): 'before' | 'after' | 'inside' => {
         const rect = nodeRef.current?.getBoundingClientRect();
         if (!rect) return 'inside';
@@ -102,7 +95,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
         return 'inside';
     };
 
-    // Drag handlers
     const handleDragStart = (e: React.DragEvent) => {
         if (isRoot) {
             e.preventDefault();
@@ -149,7 +141,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
         setLocalDropPosition(null);
     };
 
-    // Determine visual classes
     const showDropBefore = isDropTarget && currentDropPosition === 'before';
     const showDropAfter = isDropTarget && currentDropPosition === 'after';
     const showDropInside = isDropTarget && currentDropPosition === 'inside';
@@ -159,7 +150,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
             className={`tree-node-container ${isBeingDragged ? 'dragging' : ''}`}
             ref={nodeRef}
         >
-            {/* Drop indicator line - BEFORE */}
             {showDropBefore && (
                 <div className="drop-indicator drop-indicator-before">
                     <div className="drop-indicator-dot"></div>
@@ -168,7 +158,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
             )}
 
             <div className="tree-node-row">
-                {/* The node pill */}
                 <div
                     className={`tree-node-pill ${colorClass} ${isMatch ? 'search-match' : ''} ${showDropInside ? 'drop-target-inside' : ''} ${isBeingDragged ? 'being-dragged' : ''}`}
                     onClick={handleToggle}
@@ -196,12 +185,10 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
                     )}
                 </div>
 
-                {/* Connecting line to children */}
                 {hasChildren && isExpanded && (
                     <div className="horizontal-line"></div>
                 )}
 
-                {/* Children container */}
                 {hasChildren && isExpanded && (
                     <div className="children-container">
                         <div className="vertical-connector"></div>
@@ -233,7 +220,6 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
                 )}
             </div>
 
-            {/* Drop indicator line - AFTER */}
             {showDropAfter && (
                 <div className="drop-indicator drop-indicator-after">
                     <div className="drop-indicator-dot"></div>

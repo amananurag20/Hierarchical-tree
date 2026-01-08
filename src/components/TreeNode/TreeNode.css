@@ -1,5 +1,3 @@
-/* TreeNode Component Styles */
-
 .tree-node-container {
     display: flex;
     flex-direction: column;
@@ -11,17 +9,13 @@
     position: relative;
 }
 
-/* Node pill styling */
 .tree-node-pill {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    /* From Figma Gap */
     padding: 6px 24px;
-    /* From Figma Padding: Top/Bottom 6px, Left/Right 24px */
     border-radius: 8px;
-    /* From Figma Radius */
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -31,9 +25,7 @@
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1.5px solid transparent;
-    /* Reserve space for border */
     min-height: 42px;
-    /* From Figma dimensions */
 }
 
 .tree-node-pill:hover {
@@ -45,7 +37,6 @@
     user-select: none;
 }
 
-/* Expand/Collapse button */
 .expand-btn {
     display: flex;
     align-items: center;
@@ -69,9 +60,6 @@
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* Node color variants based on Figma Hex Codes */
-
-/* Level 1 & 2: Equipment (Blue) - #5583F7 */
 .node-equipment-type,
 .node-equipment {
     background: linear-gradient(180deg, #7aa0f9 0%, #5583F7 100%);
@@ -79,36 +67,30 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Level 3: Assembly (Red) - #EA5050 */
 .node-assembly {
     background: linear-gradient(180deg, #ee7676 0%, #EA5050 100%);
     color: white;
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Level 4: Sub-Assembly / Main Engine (Dark Navy) - #003366 */
 .node-sub-assembly {
     background: linear-gradient(180deg, #1a4f80 0%, #003366 100%);
     color: white;
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Level 5: Sub-Assembly 2 / Systems (Gray) - #929090 */
 .node-sub-assembly-2 {
     background: linear-gradient(180deg, #adabaa 0%, #929090 100%);
     color: white;
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Level 6: Sub-Assembly 3 / Components (Light Gray) - #C9C6C5 */
 .node-sub-assembly-3 {
     background: linear-gradient(180deg, #dad8d7 0%, #C9C6C5 100%);
     color: white;
-    /* Text might be better dark here? Figma shows white text on similar pills usually, checked images: text is white. */
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Level 7: Leaf / Components (Green) - #22C55E (Inferred High-Contrast Green) */
 .node-component {
     background: linear-gradient(180deg, #4ca045 0%, #34882D 100%);
     color: white;
@@ -120,12 +102,10 @@
     color: #374151;
 }
 
-/* Search match highlight */
 .search-match {
     box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.6), 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Connecting lines - Curved L-shape like Figma */
 .horizontal-line {
     width: 30px;
     height: 1px;
@@ -147,9 +127,7 @@
     position: absolute;
     left: 0;
     top: 20px;
-    /* Start at 20px to connect seamlessly */
     height: calc(100% - 41px);
-    /* Adjusted height calculation */
 }
 
 .children-nodes {
@@ -165,7 +143,6 @@
     position: relative;
 }
 
-/* Curved connector for each child - L-shape with rounded corner */
 .child-horizontal-line {
     width: 30px;
     height: 21px;
@@ -177,13 +154,11 @@
     margin-right: 0;
 }
 
-/* First child connector should be straight (no curve up) */
 .child-wrapper:first-child>.child-horizontal-line {
     border-left: none;
     border-bottom-left-radius: 0;
 }
 
-/* Animation for expand/collapse */
 .children-container {
     animation: slideIn 0.2s ease-out;
 }
@@ -200,7 +175,6 @@
     }
 }
 
-/* Drag & Drop Styles */
 .drag-handle {
     display: inline-flex;
     align-items: center;
@@ -228,7 +202,6 @@
     cursor: grabbing;
 }
 
-/* Being dragged state */
 .tree-node-container.dragging {
     opacity: 0.5;
 }
@@ -239,7 +212,6 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Drop target state - for "inside" drop */
 .tree-node-pill.drop-target-inside {
     box-shadow: 0 0 0 3px #3b82f6, 0 4px 12px rgba(59, 130, 246, 0.4);
     transform: scale(1.02);
@@ -261,7 +233,6 @@
     pointer-events: none;
 }
 
-/* Drop indicator lines for before/after positions */
 .drop-indicator {
     position: relative;
     display: flex;

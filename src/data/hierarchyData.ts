@@ -1,7 +1,6 @@
 import { TreeNodeLevel } from '../types/types';
 import type { TreeNode } from '../types/types';
 
-// Complete vessel hierarchy data based on Figma designs
 export const vesselHierarchyData: TreeNode = {
     id: 'equipments',
     name: 'Equipments',
@@ -182,7 +181,6 @@ export const vesselHierarchyData: TreeNode = {
     ],
 };
 
-// Helper function to get all node IDs recursively
 export const getAllNodeIds = (node: TreeNode): string[] => {
     const ids = [node.id];
     if (node.children) {
@@ -193,7 +191,6 @@ export const getAllNodeIds = (node: TreeNode): string[] => {
     return ids;
 };
 
-// Helper function to find a node by ID
 export const findNodeById = (node: TreeNode, id: string): TreeNode | null => {
     if (node.id === id) return node;
     if (node.children) {
@@ -205,7 +202,6 @@ export const findNodeById = (node: TreeNode, id: string): TreeNode | null => {
     return null;
 };
 
-// Helper function to get node level depth
 export const getNodeDepth = (node: TreeNode, targetId: string, depth = 0): number => {
     if (node.id === targetId) return depth;
     if (node.children) {

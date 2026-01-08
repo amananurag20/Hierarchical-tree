@@ -8,7 +8,6 @@ const Sidebar: React.FC = () => {
 
     return (
         <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-            {/* Logo */}
             <div className="sidebar-logo">
                 <span className="logo-icon">3S</span>
                 <div className="logo-text">
@@ -17,7 +16,6 @@ const Sidebar: React.FC = () => {
                 </div>
             </div>
 
-            {/* Navigation */}
             <nav className="sidebar-nav">
                 {menuItems.map((item) => (
                     <div
@@ -35,7 +33,6 @@ const Sidebar: React.FC = () => {
                 ))}
             </nav>
 
-            {/* User Profile */}
             <div className="sidebar-footer">
                 <div className="user-profile">
                     <div className="user-avatar">
@@ -48,7 +45,6 @@ const Sidebar: React.FC = () => {
                     <HiChevronUp className="user-chevron" size={16} />
                 </div>
 
-                {/* Stream Brand */}
                 <div className="sidebar-brand">
                     <span className="brand-name">Stream.</span>
                     <span className="brand-subtitle">powered by 3S Smart Ships Solutions</span>
