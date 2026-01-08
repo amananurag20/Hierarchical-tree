@@ -1,11 +1,8 @@
-/* App Layout Styles */
-
 .app {
   display: flex;
   width: 100%;
   min-height: 100vh;
   background: #fafafa;
-  /* Removed height lock to allow window scrolling */
 }
 
 .main-content {
@@ -13,7 +10,6 @@
   display: flex;
   flex-direction: column;
   padding: 0 24px 80px 24px;
-  /* Keep padding for footer */
 }
 
 .content-area {
@@ -34,8 +30,6 @@
   border: 1px solid #e5e7eb;
 }
 
-/* Footer */
-/* Footer */
 .footer {
   position: fixed;
   bottom: 0;
@@ -48,7 +42,6 @@
   gap: 4px;
   padding: 12px 24px;
   z-index: 60;
-  /* Higher than controls */
   background: white;
   border-top: 1px solid #e5e7eb;
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
